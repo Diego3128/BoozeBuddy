@@ -5,6 +5,8 @@ export const Modal = () => {
   const isModalOpen = useAppStore((state) => state.isModalOpen);
   const closeModal = useAppStore((state) => state.closeModal);
   const selectedRecipe = useAppStore((state) => state.selectedRecipe);
+  const handleClickDrink = useAppStore((state) => state.handleClickDrink);
+  const favoriteExists = useAppStore((state) => state.favoriteExists);
 
   if (selectedRecipe) {
     return (
@@ -31,6 +33,7 @@ export const Modal = () => {
                 </h2>
 
                 <img
+                  draggable={false}
                   className="w-full rounded-md shadow-2xl object-contain shadow-slate-300 mb-10"
                   src={selectedRecipe.strDrinkThumb}
                   alt={`${selectedRecipe.strDrink} image`}
@@ -63,10 +66,12 @@ export const Modal = () => {
                   Close
                 </button>
                 <button
-                  onClick={closeModal}
+                  onClick={() => handleClickDrink(selectedRecipe)}
                   className="bg-amber-400 px-4 py-2 rounded hover:opacity-90 cursor-pointer text-gray-700 font-bold"
                 >
-                  Add to favorites
+                  {favoriteExists(selectedRecipe.idDrink)
+                    ? "Remove from favorites"
+                    : "Add to favorites"}
                 </button>
               </div>
             </DialogPanel>
