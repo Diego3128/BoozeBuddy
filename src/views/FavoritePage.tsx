@@ -3,7 +3,7 @@ import { DrinkCard } from "../components/DrinkCard";
 import { EmptyResource } from "../components/EmptyResource";
 import { useAppStore } from "../stores/useAppStore";
 
-export const FavoritePage = () => {
+const FavoritePage = () => {
   const favoriteRecipes = useAppStore((state) => state.favorites);
 
   return (
@@ -21,10 +21,19 @@ export const FavoritePage = () => {
       ) : (
         <EmptyResource>
           <p className="text-center text-gray-500">Your collection is empty!</p>
-          <Link className="text-orange-500 underline" to="/">Discover</Link>
-          <img draggable={false} className="pulse-scale w-40" src="assets/images/beer.svg" alt="beer icon" />
+          <Link className="text-orange-500 underline" to="/">
+            Discover
+          </Link>
+          <img
+            draggable={false}
+            className="pulse-scale w-40"
+            src="assets/images/beer.svg"
+            alt="beer icon"
+          />
         </EmptyResource>
       )}
     </div>
   );
 };
+
+export default FavoritePage;

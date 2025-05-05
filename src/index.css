@@ -15,3 +15,9 @@
 .pulse-scale {
   animation: pulseScale 3s ease-in-out infinite;
 }
+
+body{
+  background-image: url('/assets/images/beer-bg.svg');
+  background-position: center;
+  background-size: 70px;
+}

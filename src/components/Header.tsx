@@ -8,6 +8,7 @@ export const Header = () => {
   const getCategories = useAppStore((state) => state.getCategories);
   const getRecipes = useAppStore((state) => state.getRecipes);
   const categories = useAppStore((state) => state.categories);
+  const showNotification = useAppStore((state) => state.showNotification);
 
   const { pathname } = useLocation();
 
@@ -46,22 +47,20 @@ export const Header = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!validSearch) {
-      // todo: toast notification
-      console.log("all fields are required");
+      showNotification({ contents: "All fields are required.", error: true });
       return;
     }
     // submit form
     getRecipes(searchFilter);
-
-    // setSearchFilter(defaultFilter);
+    setSearchFilter(defaultFilter);
   };
 
   return (
     <header
       className={`bg-slate-900 shadow-lg shadow-slate-800 bg-cover bg-no-repeat bg-center ${
         isHome
-          ? "min-h-dvh bg-[url('assets/images/background.png')]"
-          : "bg-[url('assets/images/background-2.png')] bg-top"
+          ? "min-h-dvh bg-[url('/assets/images/background.png')]"
+          : "bg-[url('/assets/images/background-2.png')] bg-top"
       }`}
     >
       <div className={"mx-auto container py-4 px-3.5"}>

@@ -3,6 +3,7 @@ import { Header } from "../components/Header";
 import { Modal } from "../components/Modal";
 import { useAppStore } from "../stores/useAppStore";
 import { useEffect } from "react";
+import { Notification } from "../components/Notification";
 
 export const Layout = () => {
   const loadLocalFavorites = useAppStore((state) => state.loadLocalFavorites);
@@ -17,6 +18,8 @@ export const Layout = () => {
         <Outlet />
       </main>
       <Modal />
+      
+      <Notification/>
     </div>
   );
 };

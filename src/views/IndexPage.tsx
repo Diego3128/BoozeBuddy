@@ -1,19 +1,29 @@
+import { useEffect, useRef } from "react";
 import { DrinkCard } from "../components/DrinkCard";
 import { EmptyResource } from "../components/EmptyResource";
 import { useAppStore } from "../stores/useAppStore";
 
-export const IndexPage = () => {
+const IndexPage = () => {
   const drinks = useAppStore((state) => state.drinks);
 
+  const drinksRef = useRef<HTMLDivElement>(null);
+
+  // scroll when fetching drinks:
+  useEffect(() => {
+    if (drinks.length > 0 && drinksRef.current) {
+      drinksRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [drinks]);
+
   return (
-    <div className="py-10 px-4">
+    <div ref={drinksRef} className="py-10 px-4 min-h-dvh">
       <h2 className="text-3xl font-bold text-center mb-10 text-orange-500">
         Drinks
       </h2>
 
       {drinks.length === 0 ? (
         <EmptyResource>
-          <p className="text-center text-gray-500">
+          <p className="text-center text-gray-500 text-lg font-semibold">
             Start by looking for some drinks!
           </p>
           <img
@@ -33,3 +43,5 @@ export const IndexPage = () => {
     </div>
   );
 };
+
+export default IndexPage;
