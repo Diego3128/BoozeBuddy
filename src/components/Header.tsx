@@ -59,8 +59,8 @@ export const Header = () => {
     <header
       className={`bg-slate-900 shadow-lg shadow-slate-800 bg-cover bg-no-repeat bg-center ${
         isHome
-          ? "min-h-dvh bg-[url('/assets/images/background.png')]"
-          : "bg-[url('/assets/images/background-2.png')] bg-top"
+          ? "min-h-dvh bg-[url('/assets/images/background.jpg')]"
+          : "bg-[url('/assets/images/background-2.jpg')] bg-top"
       }`}
     >
       <div className={"mx-auto container py-4 px-3.5"}>
@@ -111,7 +111,7 @@ export const Header = () => {
                 type="text"
                 id="ingredients"
                 name="ingredients"
-                placeholder="E.g: Vodka, Coffee, Ron, etc.."
+                placeholder="E.g: Vodka, Coffee, Rum, etc.."
                 className="outline-none border-2  hover:border-gray-500 focus:border-gray-500 bg-gray-900 text-gray-100 placeholder-gray-400 px-4 py-2 rounded-md  border-gray-700 focus:outline-none focus:ring-2 focus:ring-amber-500 mb-4"
               />
             </div>
