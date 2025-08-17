@@ -31,10 +31,10 @@ export const Notification = () => {
         className={`${
           notification.error ? "bg-red-800" : "bg-slate-800"
         } border-2 border-slate-600 rounded-lg p-2.5 text-gray-400 pointer-events-auto transition-all duration-500 ${
-          visible ? "opacity-100 scale-100 animate-bounce" : "opacity-30 scale-50"
+          visible ? "animate-popIn" : "scale-0"
         }`}
       >
-        <p className="animate-bounce">{notification.contents}</p>
+        <p>{notification.contents}</p>
       </div>
     </div>
   ) : null;
