@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+@theme {
+  --animate-popIn: popIn 3s ease forward;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 @keyframes pulseScale {
   0%,
   100% {
@@ -16,8 +29,8 @@
   animation: pulseScale 3s ease-in-out infinite;
 }
 
-body{
-  background-image: url('/assets/images/beer-bg.svg');
+body {
+  background-image: url("/assets/images/beer-bg.svg");
   background-position: center;
   background-size: 70px;
 }

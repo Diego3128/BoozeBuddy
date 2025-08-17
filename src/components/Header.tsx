@@ -57,11 +57,7 @@ export const Header = () => {
 
   return (
     <header
-      className={`bg-slate-900 shadow-lg shadow-slate-800 bg-cover bg-no-repeat bg-center ${
-        isHome
-          ? "min-h-dvh bg-[url('/assets/images/background.jpg')]"
-          : "bg-[url('/assets/images/background-2.jpg')] bg-top"
-      }`}
+      className={`bg-slate-900 shadow-lg shadow-slate-800 bg-cover bg-no-repeat  bg-[url('/assets/images/background.jpg')] ${isHome && 'min-h-dvh'}`}
     >
       <div className={"mx-auto container py-4 px-3.5"}>
         <div className="flex justify-between items-center">
